@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Cloud_Computing_Midterm": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7022",
+      "launchBrowser": false
+    }
+  }
+}
