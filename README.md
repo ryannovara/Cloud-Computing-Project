@@ -246,30 +246,8 @@ Cloud-Computing-Project/
 - ✅ RESTful API design
 - ✅ Cloud-native architecture patterns
 
-## 📸 Screenshots
-
-*Add screenshots of:*
-- Azure Dashboard
-- API responses
-- Logic App workflow
-- Application Insights queries
-
 ## 👤 Author
 
 **Ryan Novara**
 - GitHub: [@ryannovara](https://github.com/ryannovara)
-
-## 📄 License
-
-This project is for educational purposes as part of a Cloud Computing course.
-
-## 🙏 Acknowledgments
-
-- Azure Functions documentation
-- Microsoft Learn resources
-- Course instructor guidance
-
----
-
-**Note**: This project uses managed identity for authentication. No connection strings or passwords are stored in code or configuration files.
 
