@@ -337,8 +337,6 @@ public class Triggers
                     needsUpdate = true;
                 }
 
-                // Validation logic for games
-                // 1. If year < current year - 10, mark as archived
                 if (game.Year.HasValue && game.Year < currentYear - 10)
                 {
                     dataObj["archived"] = true;
@@ -349,7 +347,6 @@ public class Triggers
                     _telemetryClient.TrackTrace(archivedMsg, SeverityLevel.Information);
                 }
 
-                // 2. If publisher is missing, mark as needsReview
                 if (string.IsNullOrWhiteSpace(game.Publisher))
                 {
                     dataObj["needsReview"] = true;
@@ -361,7 +358,6 @@ public class Triggers
                     _telemetryClient.TrackTrace(needsReviewMsg, SeverityLevel.Information);
                 }
 
-                // 3. If title or UPC is missing, mark as needsReview
                 if (string.IsNullOrWhiteSpace(game.Title) || string.IsNullOrWhiteSpace(game.Upc))
                 {
                     dataObj["needsReview"] = true;
@@ -373,7 +369,6 @@ public class Triggers
                     _telemetryClient.TrackTrace(missingDataMsg, SeverityLevel.Information);
                 }
 
-                // Add validatedOn timestamp
                 dataObj["validatedOn"] = validationTimestamp.ToString("O");
                 needsUpdate = true;
 
@@ -388,7 +383,6 @@ public class Triggers
             _logger.LogInformation(processedMsg);
             _telemetryClient.TrackTrace(processedMsg, SeverityLevel.Information);
 
-            // Update games that need validation
             foreach (var (id, newData) in gamesToUpdate)
             {
                 using var updateCommand = new SqlCommand("UPDATE Games SET Data = @data WHERE Id = @id", connection);
