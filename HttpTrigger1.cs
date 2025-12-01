@@ -311,7 +311,6 @@ public class Triggers
             _logger.LogInformation("SQL connection established. Retrieving games for validation...");
             _telemetryClient.TrackTrace("SQL connection established. Retrieving games for validation...", SeverityLevel.Information);
             
-            // Get all games
             using var selectCommand = new SqlCommand("SELECT Id, Title, Upc, Data, Year, Publisher FROM Games", connection);
             using var reader = await selectCommand.ExecuteReaderAsync();
 
